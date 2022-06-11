@@ -64,8 +64,6 @@ sqrt(
 
 Fixed [here](https://github.com/manifoldfinance/OpenMevRouter/commit/d95ec8543337787dcb3f7499f6f4ec6d69eb7b52) and [here](https://github.com/manifoldfinance/OpenMevRouter/commit/958a70d6034db745555cf8b9effcb97bd2c59e20).
 
-## Low Findings
-
 ### 1. Low - No Check for `_amount > type(uint128).max`
 
 IncurDebt.sol has functions that receive uint256 values and typecasts them to uint128 for some operations but not others. 
