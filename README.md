@@ -70,7 +70,7 @@ IncurDebt.sol has functions that receive uint256 values and typecasts them to ui
 
 #### Proof of concept
 
-L249-L251 and L389-L390 \_amount is typecast to uint128 for updating the borrower's collateral but not for transferring funds.
+In L249-L251 and L389-L390, \_amount is typecast to uint128 for updating the borrower's collateral but not for transferring funds.
 
 ```solidity
         borrowers[msg.sender].collateralInGOHM += uint128(_amount);
