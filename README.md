@@ -41,7 +41,7 @@ High. This explanation has two sentences. They both end with periods.
 
 Half of the input amount in both `swapAndStakeLiquidity` and `swapETHAndStakeLiquidity` is used as the `swapAmountIn` when atomically swapping and staking.  However, this leaves funds in the contract due to the reserve asset ratio change post-swap.  See ["Optimal One-sided Supply to Uniswap"](https://blog.alphaventuredao.io/onesideduniswap/) for more information.
 
-#### Proof of concept
+#### Technical Details
 
 Both [`swapAndStakeLiquidity`](https://github.com/manifoldfinance/OpenMevRouter/blob/8648277c0a89d0091f959948682543bdcf0c280b/contracts/OpenMevZapper.sol#L126-L159) and [`swapETHAndStakeLiquidity`](https://github.com/manifoldfinance/OpenMevRouter/blob/8648277c0a89d0091f959948682543bdcf0c280b/contracts/OpenMevZapper.sol#L165-L195) take the input tokens or ETH sent by a user, divide it by 2, swap it into the B token, and stake these tokens as a pair.  However, this approach leaves some of the B token in the contract due to the reserve asset ratio change before and after the swap.
 
@@ -68,7 +68,7 @@ Fixed [here](https://github.com/manifoldfinance/OpenMevRouter/commit/d95ec854333
 
 IncurDebt.sol has functions that receive uint256 values and typecasts them to uint128 for some operations but not others. 
 
-#### Proof of concept
+#### Technical Details
 
 In L249-L251 and L389-L390, \_amount is typecast to uint128 for updating the borrower's collateral but not for transferring funds.
 
