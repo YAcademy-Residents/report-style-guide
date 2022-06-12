@@ -16,7 +16,7 @@
 - Title should be: \[Number of finding\]. \[Severity\] - \[Title\] (\[Resident\])
 - The first letter of the title should be capitalized and the remainder lower case
 
-### Proof of Concept
+### Technical details
 - Links to specific lines of code should reference a specific commit hash on the main repository or should reference the yAcademy fork of the repository, where the repo remains frozen on the commit hash for the repo
   - For example, use GitHub permalinks with the commit hash that the repo is focused on
 - Code blocks may be used instead of links, but should indicate the file and line number for the code block
