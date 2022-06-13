@@ -4,7 +4,7 @@
 
 - Contract names should not be written in code notation and should include the extension (e.g., .sol)
 - Functions and variables should both be written with code notation
-- Functions can be written as `functionabc()` or `functionabc`
+- Functions should be written as `functionabc()` and not `functionabc`
 - When writing a code block, specify the solidity language (or the relevant language) to enable [code syntax highlighting](https://www.markdownguide.org/extended-syntax#syntax-highlighting)
 
 ## Report sections
@@ -39,15 +39,15 @@ High. This explanation has two sentences. They both end with periods.
 
 ### 1. High - The swap and stake mechanisms in OpenMevZapper leave funds in the contract (Jackson)
 
-Half of the input amount in both `swapAndStakeLiquidity` and `swapETHAndStakeLiquidity` is used as the `swapAmountIn` when atomically swapping and staking.  However, this leaves funds in the contract due to the reserve asset ratio change post-swap.  See ["Optimal One-sided Supply to Uniswap"](https://blog.alphaventuredao.io/onesideduniswap/) for more information.
+Half of the input amount in both `swapAndStakeLiquidity()` and `swapETHAndStakeLiquidity()` is used as the `swapAmountIn` when atomically swapping and staking.  However, this leaves funds in the contract due to the reserve asset ratio change post-swap.  See ["Optimal One-sided Supply to Uniswap"](https://blog.alphaventuredao.io/onesideduniswap/) for more information.
 
 #### Technical Details
 
-Both [`swapAndStakeLiquidity`](https://github.com/manifoldfinance/OpenMevRouter/blob/8648277c0a89d0091f959948682543bdcf0c280b/contracts/OpenMevZapper.sol#L126-L159) and [`swapETHAndStakeLiquidity`](https://github.com/manifoldfinance/OpenMevRouter/blob/8648277c0a89d0091f959948682543bdcf0c280b/contracts/OpenMevZapper.sol#L165-L195) take the input tokens or ETH sent by a user, divide it by 2, swap it into the B token, and stake these tokens as a pair.  However, this approach leaves some of the B token in the contract due to the reserve asset ratio change before and after the swap.
+Both [`swapAndStakeLiquidity()`](https://github.com/manifoldfinance/OpenMevRouter/blob/8648277c0a89d0091f959948682543bdcf0c280b/contracts/OpenMevZapper.sol#L126-L159) and [`swapETHAndStakeLiquidity()`](https://github.com/manifoldfinance/OpenMevRouter/blob/8648277c0a89d0091f959948682543bdcf0c280b/contracts/OpenMevZapper.sol#L165-L195) take the input tokens or ETH sent by a user, divide it by 2, swap it into the B token, and stake these tokens as a pair.  However, this approach leaves some of the B token in the contract due to the reserve asset ratio change before and after the swap.
 
 #### Impact
 
-High.  The funds are not returned to the user, and will likely be swept by Sushi governance during a call to `harvest`.
+High.  The funds are not returned to the user, and will likely be swept by Sushi governance during a call to `harvest()`.
 
 #### Recommendation
 
