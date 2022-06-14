@@ -37,7 +37,7 @@ High. This explanation has two sentences. They both end with periods.
 
 ## Examples:
 
-### 1. High - The swap and stake mechanisms in OpenMevZapper leave funds in the contract (Jackson)
+### 1. High - The swap and stake mechanisms in OpenMevZapper.sol leave funds in the contract (Jackson)
 
 Half of the input amount in both `swapAndStakeLiquidity()` and `swapETHAndStakeLiquidity()` is used as the `swapAmountIn` when atomically swapping and staking.  However, this leaves funds in the contract due to the reserve asset ratio change post-swap.  See ["Optimal One-sided Supply to Uniswap"](https://blog.alphaventuredao.io/onesideduniswap/) for more information.
 
@@ -64,7 +64,7 @@ sqrt(
 
 Fixed [here](https://github.com/manifoldfinance/OpenMevRouter/commit/d95ec8543337787dcb3f7499f6f4ec6d69eb7b52) and [here](https://github.com/manifoldfinance/OpenMevRouter/commit/958a70d6034db745555cf8b9effcb97bd2c59e20).
 
-### 1. Low - No Check for `_amount > type(uint128).max`
+### 1. Low - No check for `_amount > type(uint128).max` (engn33r)
 
 IncurDebt.sol has functions that receive uint256 values and typecasts them to uint128 for some operations but not others. 
 
@@ -92,3 +92,4 @@ Typecast \_amount to uint128 for all operations or revert when `_amount > type(u
 
 #### Developer Response
 
+Fixed.
