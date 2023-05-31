@@ -13,7 +13,7 @@
 - Each finding should include a number/severity/title, a brief description, a proof of concept, an impact, a recommendation, and a developer response. The description "Developer response" is preferred over "Comments" to make clear who the author is.
 
 ### Number/Title
-- Title should be: \[Number of finding\]. \[Severity\] - \[Title\] (\[Resident\])
+- Title should be: \[Number of finding\]. \[Severity\] - \[Title\]
 - The first letter of the title should be capitalized and the remainder lower case
 
 ### Technical Details
