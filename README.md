@@ -13,7 +13,7 @@
 - Each finding should include a number/severity/title, a brief description, a proof of concept, an impact, a recommendation, and a developer response. The description "Developer response" is preferred over "Comments" to make clear who the author is.
 
 ### Number/Title
-- Title should be: \[Number of finding\]. \[Severity\] - \[Title\] (\[Resident\])
+- Title should be: \[Number of finding\]. \[Severity\] - \[Title\]
 - The first letter of the title should be capitalized and the remainder lower case
 
 ### Technical Details
@@ -37,7 +37,7 @@ High. This explanation has two sentences. They both end with periods.
 
 ## Examples:
 
-### 1. High - The swap and stake mechanisms in OpenMevZapper.sol leave funds in the contract (Jackson)
+### 1. High - The swap and stake mechanisms in OpenMevZapper.sol leave funds in the contract
 
 Half of the input amount in both `swapAndStakeLiquidity()` and `swapETHAndStakeLiquidity()` is used as the `swapAmountIn` when atomically swapping and staking.  However, this leaves funds in the contract due to the reserve asset ratio change post-swap.  See ["Optimal One-sided Supply to Uniswap"](https://blog.alphaventuredao.io/onesideduniswap/) for more information.
 
@@ -64,7 +64,7 @@ sqrt(
 
 Fixed [here](https://github.com/manifoldfinance/OpenMevRouter/commit/d95ec8543337787dcb3f7499f6f4ec6d69eb7b52) and [here](https://github.com/manifoldfinance/OpenMevRouter/commit/958a70d6034db745555cf8b9effcb97bd2c59e20).
 
-### 1. Low - No check for `_amount > type(uint128).max` (engn33r)
+### 1. Low - No check for `_amount > type(uint128).max`
 
 IncurDebt.sol has functions that receive uint256 values and typecasts them to uint128 for some operations but not others. 
 
